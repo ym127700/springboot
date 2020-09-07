@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+    <h1>商品详情:</h1>
+    <h1>商品编号:</h1> <h1 th:text="${good.gid}"></h1>
+    <h1>商品名称:</h1> <h1 th:text="${good.gname}"></h1>
+    <h1>商品数量:</h1> <h1 th:text="${good.gcount}"></h1>
+    <h1>商品价格:</h1> <h1 th:text="${good.gprice}"></h1>
+    <h1>商品类型:</h1> <h1 th:text="${good.tid}"></h1>
+    <h1>上架时间:</h1> <h1 th:text="${ #dates.format({good.time})}"></h1>
+</body>
+</html>

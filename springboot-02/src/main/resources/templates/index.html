@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/body.css}">
+</head>
+    <script th:src="@{/js/jquery.js}"></script>
+    <script>
+        $(function(){
+            alert(1);
+        })
+    </script>
+<body>
+    <table border="1px" width="80%" align="center">
+        <tr>
+            <th>序号</th>
+            <th>编号</th>
+            <th>名称</th>
+            <th>价格</th>
+            <th>数量</th>
+            <th>类型</th>
+            <th>名称</th>
+            <th>操作</th>
+        </tr>
+        <tr th:each="good,status : ${goods}" th:if="${good.tid==1}">
+            <th th:text="${status.count}">序号</th>
+            <th th:text="${good.gid}">编号</th>
+            <th th:text="${good.gname}">名称</th>
+            <th th:text="${good.gprice}">价格</th>
+            <th th:text="${good.gcount}">数量</th>
+            <th th:text="${good.tid}">类型</th>
+            <th th:text="${#dates.format(good.time,'yyyy-MM-dd hh:mm:ss')}">时间</th>
+            <th>
+                <a th:href="@{/good/{gid}(gid=${good.gid})}">查看</a>
+            </th>
+        </tr>
+    </table>
+
+    <!--<div th:if="${session.user==null}">
+
+        <a th:href="@{/page/login}">请登录</a>
+        <a th:href="@{/page/regist}">去注册</a>
+    </div>
+    <div th:if="${session.user!=null}">
+        欢迎你:<span th:text="${session.user.username}"></span>
+    </div>-->
+</body>
+</html>
